@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAKA TRADING F.Z.E | Premium Industrial Solutions</title>
+    <meta name="description" content="RAKA Trading F.Z.E - Your trusted partner for Lazio Bearings, RAMA Copper Wire, and Industrial Maintenance Solutions in the UAE and beyond.">
+    <meta name="keywords" content="RAKA, RAKA TRADING FZE, RAKA TRADING - F.Z.E, Auto Spare Parts, Lazio Bearings, RAMA Copper Wires, EH Handwash, Industrial Supplies, Ball Bearings, Winding Wires, Degreaser, Bearing supplier in Dubai, EH Workshop Handwash, RAKA TRADING, Auto Spare Parts, Grease remover, VLH Bearings, ARB Bearings, Lazio Bearings by RAKA Trading provides premium ball bearings, hub bearings, and pillow block bearings, Lazio Bearings, BAIXUN AUTO SPARE PARTS, Ball Bearings, Hub Bearings, Pillow Block Bearing, Bearing supplier in Dubai, Bearing supplier in UAE, Auto Spare Parts, Industrial Bearings, Heavy Equipment Parts, Lazio, ball bearings, hub bearings, pillow block bearings, bearings, bearing supplier and dealer in UAE, LAZIO BEARINGS Suppliers and Dealers in UAE - Dubai, Lazio bearings Dubai, wheel bearings, special bearings, NSK bearings, NSK, KOYO Bearings, JTEKT, JTEKT Bearings, RSKDAK Bearings, SKF, SKF Bearings, UAE main ball bearings dealer, Bearings dealer in UAE, Dubai Dealer, High quality bearing supplier in Dubai and UAE, Fan Bearings, Motor Bearings, RAKA TRADING BEARINGS, Deep groove ball bearings, Deep groove bearing supplier, BAIXUN Auto spare parts, NKN Bearings, NKN, AKAPOLCO, TIMKEN, Top bearing suppliers in Dubai, thrust bearings, Linear bearings, Magnetic Bearings, Roller Bearings, RAKA TRADING, RAKA, Bearing suppliers and dealers in Sharjah, Bearing suppliers and dealers in Ajman, Bearing suppliers and dealers in Fujairah, Bearing suppliers and dealers in Abu Dhabi, bearing supplier in Abu Dhabi, Top bearing suppliers in Abu Dhabi, Bearing suppliers and dealer in Umm Al Quwain, Top bearing suppliers and dealers in Umm Al Quwain, Bearings, Bearing, Steel Ball, 6201 2RS, UCP, 6202 2RS, 6205 2RS, 6202 2RS 1/2, 6201 2RS 1/2, DAC, Compressor Bearing, JTEKT Bearings, JTEKT, Rollman, NEW EAST, DUBAI, SHARJAH, AJMAN, UMM AL QUWAIN, FUJAIRAH, AL AIN, Bearing dealers and suppliers in AL Ain, Bearing suppliers in Mussafah">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        raka: {
+                            blue: '#0f172a', // Slate 900
+                            dark: '#020617', // Slate 950
+                            gold: '#fbbf24', // Amber 400
+                            accent: '#2563eb', // Blue 600
+                        }
+                    },
+                    keyframes: {
+                        pop: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                        'pop': 'pop 2s infinite ease-in-out',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        #root {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation offset for anchor links */
+        html {
+            scroll-padding-top: 80px;
+        }
+
+        /* Loading Screen Animations */
+        @keyframes spin-stop {
+            0% { transform: rotate(0deg) scale(0.8); opacity: 0; }
+            20% { opacity: 1; }
+            80% { transform: rotate(1080deg) scale(1.1); } 
+            100% { transform: rotate(1080deg) scale(1); }
+        }
+        @keyframes load-progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        /* Orbit System */
+        :root {
+            --orbit-radius-desktop: 280px;
+            --orbit-radius-mobile: 140px;
+            --current-radius: var(--orbit-radius-desktop);
+        }
+        @media (max-width: 768px) {
+            :root { --current-radius: var(--orbit-radius-mobile); }
+        }
+
+        .orbit-scene { perspective: 1000px; }
+        .orbit-container {
+            position: absolute;
+            width: 0; height: 0;
+            top: 50%; left: 50%;
+            z-index: 10;
+            animation: spin-right 40s linear infinite;
+        }
+        .orbit-container.paused { animation-play-state: paused; }
+        @keyframes spin-right { 100% { transform: rotate(360deg); } }
+        .orbit-spoke {
+            position: absolute; top: 0; left: 0;
+            width: 0; height: 0;
+            transform: rotate(var(--angle));
+        }
+        .orbit-translator {
+            position: absolute; top: 0; left: 0;
+            width: 100px; height: 100px;
+            margin-top: -50px; margin-left: -50px;
+            transform: translateY(0) scale(0);
+            opacity: 0;
+            animation: pop-out 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @media (max-width: 768px) {
+            .orbit-translator { width: 70px; height: 70px; margin-top: -35px; margin-left: -35px; }
+        }
+        @keyframes pop-out {
+            0% { transform: translateY(0) scale(0); opacity: 0; }
+            100% { transform: translateY(var(--current-radius)) scale(1); opacity: 1; }
+        }
+        .orbit-scale-wrapper {
+            width: 100%; height: 100%;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            transform: rotate(calc(var(--angle) * -1));
+        }
+        .orbit-scale-wrapper:hover {
+            transform: rotate(calc(var(--angle) * -1)) scale(1.3);
+            z-index: 100;
+        }
+        .orbit-item-content {
+            width: 100%; height: 100%;
+            position: relative;
+            animation: spin-left 40s linear infinite;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .orbit-item-content.paused { animation-play-state: paused; }
+        @keyframes spin-left { 100% { transform: rotate(-360deg); } }
+        .orbit-product-img {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            border: 2px solid #e2e8f0;
+        }
+        .product-name {
+            position: absolute; top: 110%; left: 50%;
+            transform: translate(-50%, 10px);
+            background-color: #0f172a; color: #fbbf24;
+            padding: 4px 12px; border-radius: 4px;
+            font-size: 0.75rem; font-weight: 700; white-space: nowrap;
+            opacity: 0; transition: all 0.3s ease;
+            pointer-events: none; z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .orbit-scale-wrapper:hover .product-name { opacity: 1; transform: translate(-50%, 0); }
+
+        /* Scrolling Logos */
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .scrolling-logos-container { display: flex; width: max-content; animation: scroll-left 30s linear infinite; align-items: center; }
+        .scrolling-logos-container:hover { animation-play-state: paused; }
+    </style>
+  <script type="module" crossorigin src="/assets/index-CFB8Em_L.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Entry point for Vite -->
+</body>
+</html>
